@@ -1,0 +1,48 @@
+LABORATÓRIO 8 — CRITÉRIOS DE COBERTURA ESTRUTURAL
+EXERCÍCIO 1 — FORÇA DA SENHA
+a) O GFC está em GFC.svg: 13 nós, 17 arestas e cinco decisões.
+V(G) = E − N + 2 = 17 − 13 + 2 = 6.
+V(G) = decisões + 1 = 5 + 1 = 6.
+b) X = saída; L = (5,6,8,5); D = (5,6,7,5); S = (5,6,8,9,5).
+Nas concatenações, o nó 5 compartilhado não é repetido.
+P1: 1,2,3,X; "abc" → "fraca".
+P2: 1,2,4,5,10,12,X; inviável; retornaria "media".
+P3: 1,2,4,L×8,10,12,X; "abcdefgh" → "media".
+P4: 1,2,4,D,L×7,10,12,X; "1abcdefg" → "media".
+P5: 1,2,4,S,L×7,10,12,X; "!abcdefg" → "media".
+P6: 1,2,4,D×4,L×4,10,11,X; "1234abcd" → "forte".
+Cada caminho introduz uma aresta ausente nos anteriores.
+P2 é inviável: chegar ao laço exige oito caracteres, impedindo zero voltas.
+c) Cinco testes parametrizados cobriram 100% dos ramos, apesar de V(G)=6.
+O mínimo é três casos: "abc", "12!abcde" e "abcdefgh".
+d) São possíveis zero voltas ou n voltas para n≥8; não há máximo explícito.
+Testaram-se comprimentos 0,1,2,7,8,9,20,1000 e os limiares de três/quatro pontos.
+EXERCÍCIO 2 — CONTROLE DE EMBARQUE
+a) A=cartão; B=documento; C=grupo chamado; D=prioridade.
+Regra: A and B and (C or D). Original: (A and B and C) or D.
+mcdc.py encontra pares que diferem só em uma condição e mudam a decisão.
+b) Linhas 0–15 seguem a ordem A,B,C,D: FFFF, FFFV, ..., VVVV.
+A: (5,13),(6,14),(7,15); B: (9,13),(10,14),(11,15): três pares cada.
+C: (12,14); D: (12,13): um par cada.
+Conjuntos mínimos: M1={5,9,12,13,14}; M2={5,10,12,13,14};
+M3={6,9,12,13,14}; M4={6,10,12,13,14}.
+São quatro conjuntos de cinco casos: 12,13,14 são obrigatórios,
+mais uma escolha entre 5/6 e outra entre 9/10.
+c) Todos V e todos F passam no original e atingem 100% dos ramos do if.
+d) M1 detecta erros em 5/9; M2 em 5; M3 em 9; M4 não detecta.
+O original permite prioridade sem cartão/documento; M4 não testa isso.
+MCC cobre as 16 combinações, incluindo os erros em 1,3,5,7,9,11.
+Correção: cartao and documento and (grupo_chamado or prioridade).
+EXERCÍCIO 3 — PREÇO COM DESCONTO VIP
+a) Linhas do original: total tem definições 2,5,7; c-uses 5,8; p-use 6.
+desconto tem definição 4 e c-use 5; na linha 5, o uso precede a definição.
+Pares du por nós: total={(2,5),(2,6),(2,8),(5,6),(5,8),(7,8)};
+desconto={(4,5)}. Os p-uses de 6 se dividem nas arestas 6→7 e 6→8.
+b) (60,True) cobre (2,5),(5,6→7),(7,8) e desconto (4,5).
+(200,False) cobre (2,6→8),(2,8).
+Faltam (5,8),(5,6→8),(2,6→7); por nós, falta apenas (5,8).
+c) Acrescentar (200,True)→160 e (40,False)→50 completa All-Uses.
+O primeiro retorna 120 no original: o desconto efetivo é 40%.
+Em (60,True), os valores errado=36 e correto=48 viram 50, mascarando o erro.
+d) Corrigiu-se para total=total*0.8, removendo desconto e mantendo o piso.
+A suíte corrigida passou em 45 testes, com 100% de comandos e ramos.
