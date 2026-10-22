@@ -1,0 +1,102 @@
+$ .venv/bin/pytest -q --cov=senha --cov=embarque --cov=preco --cov-branch --cov-report=term-missing
+.............................................                            [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name          Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------
+embarque.py       4      0      2      0   100%
+preco.py          7      0      4      0   100%
+senha.py         12      0     10      0   100%
+---------------------------------------------------------
+TOTAL            23      0     16      0   100%
+45 passed in 0.08s
+
+Código de saída: 0
+
+$ .venv/bin/pytest -q experimentos/test_embarque_original.py experimentos/test_preco_original.py
+..FFF...F.                                                               [100%]
+=================================== FAILURES ===================================
+_____________________________ test_mcdc[conjunto0] _____________________________
+
+conjunto = (5, 9, 12, 13, 14)
+
+    @pytest.mark.parametrize('conjunto', conjuntos_minimos(regra, 4))
+    def test_mcdc(conjunto):
+        for i in conjunto:
+>           assert pode_embarcar(*LINHAS[i]) == regra(*LINHAS[i])
+E           assert True == False
+E            +  where True = pode_embarcar(*(False, True, False, True))
+E            +  and   False = regra(*(False, True, False, True))
+
+experimentos/test_embarque_original.py:17: AssertionError
+_____________________________ test_mcdc[conjunto1] _____________________________
+
+conjunto = (5, 10, 12, 13, 14)
+
+    @pytest.mark.parametrize('conjunto', conjuntos_minimos(regra, 4))
+    def test_mcdc(conjunto):
+        for i in conjunto:
+>           assert pode_embarcar(*LINHAS[i]) == regra(*LINHAS[i])
+E           assert True == False
+E            +  where True = pode_embarcar(*(False, True, False, True))
+E            +  and   False = regra(*(False, True, False, True))
+
+experimentos/test_embarque_original.py:17: AssertionError
+_____________________________ test_mcdc[conjunto2] _____________________________
+
+conjunto = (6, 9, 12, 13, 14)
+
+    @pytest.mark.parametrize('conjunto', conjuntos_minimos(regra, 4))
+    def test_mcdc(conjunto):
+        for i in conjunto:
+>           assert pode_embarcar(*LINHAS[i]) == regra(*LINHAS[i])
+E           assert True == False
+E            +  where True = pode_embarcar(*(True, False, False, True))
+E            +  and   False = regra(*(True, False, False, True))
+
+experimentos/test_embarque_original.py:17: AssertionError
+_________________________ test_all_uses[200-True-160] __________________________
+
+preco = 200, vip = True, esperado = 160
+
+    @pytest.mark.parametrize('preco, vip, esperado', [(200, True, 160), (40, False, 50)])
+    def test_all_uses(preco, vip, esperado):
+>       assert preco_final(preco, vip) == esperado
+E       assert 120.0 == 160
+E        +  where 120.0 = preco_final(200, True)
+
+experimentos/test_preco_original.py:12: AssertionError
+=========================== short test summary info ============================
+FAILED experimentos/test_embarque_original.py::test_mcdc[conjunto0] - assert ...
+FAILED experimentos/test_embarque_original.py::test_mcdc[conjunto1] - assert ...
+FAILED experimentos/test_embarque_original.py::test_mcdc[conjunto2] - assert ...
+FAILED experimentos/test_preco_original.py::test_all_uses[200-True-160] - ass...
+4 failed, 6 passed in 0.04s
+
+Código de saída: 1
+
+$ .venv/bin/python mcdc.py
+0 FFFF False False
+1 FFFV False True
+2 FFVF False False
+3 FFVV False True
+4 FVFF False False
+5 FVFV False True
+6 FVVF False False
+7 FVVV False True
+8 VFFF False False
+9 VFFV False True
+10 VFVF False False
+11 VFVV False True
+12 VVFF False False
+13 VVFV True True
+14 VVVF True True
+15 VVVV True True
+Pares: {0: [(5, 13), (6, 14), (7, 15)], 1: [(9, 13), (10, 14), (11, 15)], 2: [(12, 14)], 3: [(12, 13)]}
+Conjunto: (5, 9, 12, 13, 14) Divergências: [5, 9]
+Conjunto: (5, 10, 12, 13, 14) Divergências: [5]
+Conjunto: (6, 9, 12, 13, 14) Divergências: [9]
+Conjunto: (6, 10, 12, 13, 14) Divergências: []
+
+Código de saída: 0

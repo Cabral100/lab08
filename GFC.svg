@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="1080" viewBox="0 0 920 1080">
+<rect width="920" height="1080" fill="white"/>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#384657"/></marker></defs>
+<g transform="translate(20 20)" font-family="Arial,sans-serif" font-size="14">
+<polyline points="400.0,65.0 400.0,87.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="290.0,125.0 100,125 100.0,195.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="203.0" y="119.0" fill="#17293b">V</text>
+<polyline points="400.0,163.0 400.0,195.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="408.0" y="173.0" fill="#17293b">F</text>
+<polyline points="0.0,220.0 30,220 30,1000 300.0,1000.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="400.0,245.0 400.0,282.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="400.0,358.0 400.0,402.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="408.0" y="374.0" fill="#17293b">V</text>
+<polyline points="290.0,320.0 180,320 180,750 290.0,750.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="243.0" y="314.0" fill="#17293b">F</text>
+<polyline points="510.0,440.0 600.0,440.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="563.0" y="434.0" fill="#17293b">V</text>
+<polyline points="400.0,478.0 400.0,522.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="408.0" y="494.0" fill="#17293b">F</text>
+<polyline points="800.0,440.0 820,440 820,320 510.0,320.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="510.0,560.0 600.0,560.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="563.0" y="554.0" fill="#17293b">V</text>
+<polyline points="290.0,560.0 240,560 240,365 400,365 400.0,358.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="273.0" y="554.0" fill="#17293b">F</text>
+<polyline points="800.0,560.0 860,560 860,275 400,275 400.0,282.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="290.0,750.0 250,750 250.0,845.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="278.0" y="744.0" fill="#17293b">V</text>
+<polyline points="510.0,750.0 550,750 550.0,845.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="538.0" y="744.0" fill="#17293b">F</text>
+<polyline points="250.0,895.0 250,1000 300.0,1000.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<polyline points="550.0,895.0 550,1000 500.0,1000.0" fill="none" stroke="#384657" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="300" y="15" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="400" y="45" text-anchor="middle">1 · Entrada</text>
+<polygon points="290,125 400,87 510,125 400,163" fill="#eaf1f7" stroke="#243e55"/>
+<text x="400" y="130" text-anchor="middle">2 · len &lt; 8?</text>
+<rect x="0" y="195" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="100" y="225" text-anchor="middle">3 · retorna fraca</text>
+<rect x="300" y="195" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="400" y="225" text-anchor="middle">4 · pontos = 0</text>
+<polygon points="290,320 400,282 510,320 400,358" fill="#eaf1f7" stroke="#243e55"/>
+<text x="400" y="325" text-anchor="middle">5 · próximo caractere?</text>
+<polygon points="290,440 400,402 510,440 400,478" fill="#eaf1f7" stroke="#243e55"/>
+<text x="400" y="445" text-anchor="middle">6 · dígito?</text>
+<rect x="600" y="415" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="700" y="445" text-anchor="middle">7 · soma 1</text>
+<polygon points="290,560 400,522 510,560 400,598" fill="#eaf1f7" stroke="#243e55"/>
+<text x="400" y="565" text-anchor="middle">8 · símbolo?</text>
+<rect x="600" y="535" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="700" y="565" text-anchor="middle">9 · soma 2</text>
+<polygon points="290,750 400,712 510,750 400,788" fill="#eaf1f7" stroke="#243e55"/>
+<text x="400" y="755" text-anchor="middle">10 · pontos ≥ 4?</text>
+<rect x="150" y="845" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="250" y="875" text-anchor="middle">11 · retorna forte</text>
+<rect x="450" y="845" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="550" y="875" text-anchor="middle">12 · retorna media</text>
+<rect x="300" y="975" width="200" height="50" rx="8" fill="#f7f9fb" stroke="#243e55"/>
+<text x="400" y="1005" text-anchor="middle">X · Saída</text>
+</g></svg>
